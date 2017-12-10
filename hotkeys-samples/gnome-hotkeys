@@ -1,0 +1,42 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/']
+
+[custom-keybindings/custom0]
+binding='<Alt>f'
+command='showwin "Mozilla Firefox$" firefox'
+name='Firefox'
+
+[custom-keybindings/custom1]
+binding='<Alt>p'
+command='showwin "Mozilla Firefox (Private Browsing)$" "firefox -private-window"'
+name='Firefox Private'
+
+[custom-keybindings/custom2]
+binding='<Alt>i'
+command='showwin "chromium-browser.Chromium-browser" "chromium-browser -incognito"'
+name='Chromium Incognito'
+
+[custom-keybindings/custom3]
+binding='<Alt>c'
+command='showwin chromium-browser.Chromium-browser chromium-browser'
+name='Chromium'
+
+[custom-keybindings/custom4]
+binding='<Alt>t'
+command='showwin "terminator.Terminator" terminator'
+name='Terminal'
+
+[custom-keybindings/custom5]
+binding='<Alt>s'
+command='showwin "skype.Skype" skypeforlinux'
+name='Skype'
+
+[custom-keybindings/custom6]
+binding='<Alt>k'
+command='showwin "krusader.krusader" krusader'
+name='Krusader'
+
+[custom-keybindings/custom7]
+binding='<Alt>e'
+command='showwin "sun-awt-X11-XFramePeer.jetbrains-idea" idea.sh'
+name='IntelliJ Idea'

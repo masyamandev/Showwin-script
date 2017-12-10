@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# sudo apt-get install wmctrl xdotool
+
+#SWITCH_DIR="/tmp/showwin/$1"
+SWITCH_DIR="/dev/shm/$USER/showwin/$1"
+
+LAST_DIR="$SWITCH_DIR/../showwin_last"
+mkdir -p "$SWITCH_DIR"
+rm -r "$LAST_DIR"
+ln -s "$SWITCH_DIR" "$LAST_DIR"
+
+PINNED=`ls "$SWITCH_DIR"`
+
+MATCHED=`wmctrl -l -x | grep -i "$1\|^$PINNED "`
+if [[ -z $MATCHED && -z $2 ]]; then
+  echo Assigning new window
+  MATCHED=`wmctrl -l -x`
+  PINNED=
+fi
+
+CURRENT=`xdotool getwindowfocus`
+CURRENT=`printf "0x%08x" $CURRENT`
+MATCHED_CURRENT=`echo "$MATCHED" | grep "^$CURRENT" | head -1 | cut -d" " -f1`
+
+MATCHED_PINNED=`echo "$MATCHED" | grep "^$PINNED"`
+
+if [[ -n $MATCHED_PINNED ]]; then
+  MATCHED=$MATCHED_PINNED
+fi
+
+if [[ -n $MATCHED_CURRENT && -z $PINNED ]]; then
+  echo Setting new current window $MATCHED_CURRENT
+  rm -r "$SWITCH_DIR"/* > /dev/null
+  mkdir -p "$SWITCH_DIR/$MATCHED_CURRENT"
+elif [[ -n $MATCHED ]]; then
+  WINID=`echo "$MATCHED" | head -1 | cut -d" " -f1`
+  echo Switching to window $WINID
+  wmctrl -a $WINID -i
+else
+  echo Opening new window $2
+  $2&
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -r /dev/shm/$USER/showwin/showwin_last/*
