@@ -3,7 +3,7 @@ DataCount=1
 
 [Data_1]
 Comment=Comment
-DataCount=10
+DataCount=11
 Enabled=true
 Name=Quick launch
 SystemGroup=0
@@ -21,298 +21,324 @@ Type=SIMPLE_ACTION_DATA
 
 [Data_1_10]
 Comment=Comment
+Enabled=true
+Name=Idea
+Type=SIMPLE_ACTION_DATA
+
+[Data_1_10Actions]
+ActionsCount=1
+
+[Data_1_10Actions0]
+CommandURL=showwin "jetbrains-idea" idea.sh
+Type=COMMAND_URL
+
+[Data_1_10Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_10Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_1_10Triggers0]
+Key=Alt+E
+Type=SHORTCUT
+Uuid={7b0a4020-93b8-49d8-a133-cb084a007242}
+
+[Data_1_11]
+Comment=Comment
 DataCount=11
 Enabled=true
 Name=Customizable
 SystemGroup=0
 Type=ACTION_DATA_GROUP
 
-[Data_1_10Conditions]
+[Data_1_11Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_1]
+[Data_1_11_1]
 Comment=Comment
 Enabled=true
 Name=Alt+1
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_10]
+[Data_1_11_10]
 Comment=Comment
 Enabled=true
 Name=Alt+0
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_10Actions]
+[Data_1_11_10Actions]
 ActionsCount=1
 
-[Data_1_10_10Actions0]
+[Data_1_11_10Actions0]
 CommandURL=showwin "CustomKey0"
 Type=COMMAND_URL
 
-[Data_1_10_10Conditions]
+[Data_1_11_10Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_10Triggers]
+[Data_1_11_10Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_10Triggers0]
+[Data_1_11_10Triggers0]
 Key=Alt+0
 Type=SHORTCUT
 Uuid={2873ea69-1349-4636-87a1-769d49be21d3}
 
-[Data_1_10_11]
+[Data_1_11_11]
 Comment=Comment
 Enabled=true
 Name=Detach last window
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_11Actions]
+[Data_1_11_11Actions]
 ActionsCount=1
 
-[Data_1_10_11Actions0]
+[Data_1_11_11Actions0]
 CommandURL=showwinDetach
 Type=COMMAND_URL
 
-[Data_1_10_11Conditions]
+[Data_1_11_11Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_11Triggers]
+[Data_1_11_11Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_11Triggers0]
+[Data_1_11_11Triggers0]
 Key=Alt+Backspace
 Type=SHORTCUT
 Uuid={8f667f60-912a-470a-a86e-be662bc6e3a6}
 
-[Data_1_10_1Actions]
+[Data_1_11_1Actions]
 ActionsCount=1
 
-[Data_1_10_1Actions0]
+[Data_1_11_1Actions0]
 CommandURL=showwin "CustomKey1"
 Type=COMMAND_URL
 
-[Data_1_10_1Conditions]
+[Data_1_11_1Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_1Triggers]
+[Data_1_11_1Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_1Triggers0]
+[Data_1_11_1Triggers0]
 Key=Alt+1
 Type=SHORTCUT
 Uuid={d361d0a5-0d06-416e-918b-1c6b3ab3577c}
 
-[Data_1_10_2]
+[Data_1_11_2]
 Comment=Comment
 Enabled=true
 Name=Alt+2
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_2Actions]
+[Data_1_11_2Actions]
 ActionsCount=1
 
-[Data_1_10_2Actions0]
+[Data_1_11_2Actions0]
 CommandURL=showwin "CustomKey2"
 Type=COMMAND_URL
 
-[Data_1_10_2Conditions]
+[Data_1_11_2Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_2Triggers]
+[Data_1_11_2Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_2Triggers0]
+[Data_1_11_2Triggers0]
 Key=Alt+2
 Type=SHORTCUT
 Uuid={fd5b1016-3194-4ecf-b495-9108e6c58e2a}
 
-[Data_1_10_3]
+[Data_1_11_3]
 Comment=Comment
 Enabled=true
 Name=Alt+3
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_3Actions]
+[Data_1_11_3Actions]
 ActionsCount=1
 
-[Data_1_10_3Actions0]
+[Data_1_11_3Actions0]
 CommandURL=showwin "CustomKey3"
 Type=COMMAND_URL
 
-[Data_1_10_3Conditions]
+[Data_1_11_3Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_3Triggers]
+[Data_1_11_3Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_3Triggers0]
+[Data_1_11_3Triggers0]
 Key=Alt+3
 Type=SHORTCUT
 Uuid={7cc562a8-272d-4be3-ac47-37eaf1186bbb}
 
-[Data_1_10_4]
+[Data_1_11_4]
 Comment=Comment
 Enabled=true
 Name=Alt+4
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_4Actions]
+[Data_1_11_4Actions]
 ActionsCount=1
 
-[Data_1_10_4Actions0]
+[Data_1_11_4Actions0]
 CommandURL=showwin "CustomKey4"
 Type=COMMAND_URL
 
-[Data_1_10_4Conditions]
+[Data_1_11_4Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_4Triggers]
+[Data_1_11_4Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_4Triggers0]
+[Data_1_11_4Triggers0]
 Key=Alt+4
 Type=SHORTCUT
 Uuid={c38aa9eb-7249-40c8-bff1-7aabbba6d5f2}
 
-[Data_1_10_5]
+[Data_1_11_5]
 Comment=Comment
 Enabled=true
 Name=Alt+5
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_5Actions]
+[Data_1_11_5Actions]
 ActionsCount=1
 
-[Data_1_10_5Actions0]
+[Data_1_11_5Actions0]
 CommandURL=showwin "CustomKey5"
 Type=COMMAND_URL
 
-[Data_1_10_5Conditions]
+[Data_1_11_5Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_5Triggers]
+[Data_1_11_5Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_5Triggers0]
+[Data_1_11_5Triggers0]
 Key=Alt+5
 Type=SHORTCUT
 Uuid={d68cef40-0a0b-4708-9a13-2a64ea860b9c}
 
-[Data_1_10_6]
+[Data_1_11_6]
 Comment=Comment
 Enabled=true
 Name=Alt+6
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_6Actions]
+[Data_1_11_6Actions]
 ActionsCount=1
 
-[Data_1_10_6Actions0]
+[Data_1_11_6Actions0]
 CommandURL=showwin "CustomKey6"
 Type=COMMAND_URL
 
-[Data_1_10_6Conditions]
+[Data_1_11_6Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_6Triggers]
+[Data_1_11_6Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_6Triggers0]
+[Data_1_11_6Triggers0]
 Key=Alt+6
 Type=SHORTCUT
 Uuid={2cf18917-ace8-45ba-81da-9e2f448241e1}
 
-[Data_1_10_7]
+[Data_1_11_7]
 Comment=Comment
 Enabled=true
 Name=Alt+7
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_7Actions]
+[Data_1_11_7Actions]
 ActionsCount=1
 
-[Data_1_10_7Actions0]
+[Data_1_11_7Actions0]
 CommandURL=showwin "CustomKey7"
 Type=COMMAND_URL
 
-[Data_1_10_7Conditions]
+[Data_1_11_7Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_7Triggers]
+[Data_1_11_7Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_7Triggers0]
+[Data_1_11_7Triggers0]
 Key=Alt+7
 Type=SHORTCUT
 Uuid={52fefcaa-1242-48ba-b5ea-91084df534f1}
 
-[Data_1_10_8]
+[Data_1_11_8]
 Comment=Comment
 Enabled=true
 Name=Alt+8
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_8Actions]
+[Data_1_11_8Actions]
 ActionsCount=1
 
-[Data_1_10_8Actions0]
+[Data_1_11_8Actions0]
 CommandURL=showwin "CustomKey8"
 Type=COMMAND_URL
 
-[Data_1_10_8Conditions]
+[Data_1_11_8Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_8Triggers]
+[Data_1_11_8Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_8Triggers0]
+[Data_1_11_8Triggers0]
 Key=Alt+8
 Type=SHORTCUT
 Uuid={00a8724f-d9ca-4ec4-8509-cc77980cb29f}
 
-[Data_1_10_9]
+[Data_1_11_9]
 Comment=Comment
 Enabled=true
 Name=Alt+9
 Type=SIMPLE_ACTION_DATA
 
-[Data_1_10_9Actions]
+[Data_1_11_9Actions]
 ActionsCount=1
 
-[Data_1_10_9Actions0]
+[Data_1_11_9Actions0]
 CommandURL=showwin "CustomKey9"
 Type=COMMAND_URL
 
-[Data_1_10_9Conditions]
+[Data_1_11_9Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_10_9Triggers]
+[Data_1_11_9Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_10_9Triggers0]
+[Data_1_11_9Triggers0]
 Key=Alt+9
 Type=SHORTCUT
 Uuid={734145b5-2827-488c-b308-25b971e528ff}
@@ -418,14 +444,14 @@ Uuid={edcc1f51-67d7-48e9-b208-123f8e75edd8}
 [Data_1_5]
 Comment=Comment
 Enabled=true
-Name=Terminal
+Name=Tor browser
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_5Actions]
 ActionsCount=1
 
 [Data_1_5Actions0]
-CommandURL=showwin "terminator.Terminator" terminator
+CommandURL=showwin "Navigator.Tor" start-tor-browser
 Type=COMMAND_URL
 
 [Data_1_5Conditions]
@@ -437,21 +463,21 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_5Triggers0]
-Key=Alt+T
+Key=Alt+Y
 Type=SHORTCUT
-Uuid={f6c4a769-e208-4546-a3b1-137472e2b768}
+Uuid={a52e6c8d-d078-4dcd-8bb6-943225d89fe0}
 
 [Data_1_6]
 Comment=Comment
 Enabled=true
-Name=Skype
+Name=Calculator
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_6Actions]
 ActionsCount=1
 
 [Data_1_6Actions0]
-CommandURL=showwin "skype.Skype" skypeforlinux
+CommandURL=showwin "gnome-calculator.Gnome-calculator" gnome-calculator
 Type=COMMAND_URL
 
 [Data_1_6Conditions]
@@ -463,21 +489,21 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_6Triggers0]
-Key=Alt+S
+Key=Alt+M
 Type=SHORTCUT
-Uuid={ca00f051-faef-4f89-aa46-2c0b9dadafd7}
+Uuid={048d6ec4-f985-45f6-b29b-3fe0abeefbf3}
 
 [Data_1_7]
 Comment=Comment
 Enabled=true
-Name=Krusader
+Name=Terminal
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_7Actions]
 ActionsCount=1
 
 [Data_1_7Actions0]
-CommandURL=showwin "krusader.krusader" krusader
+CommandURL=showwin "terminator.Terminator" terminator
 Type=COMMAND_URL
 
 [Data_1_7Conditions]
@@ -489,21 +515,21 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_7Triggers0]
-Key=Alt+K
+Key=Alt+T
 Type=SHORTCUT
-Uuid={73552960-0fd8-4431-9b5e-fcc118a3b4d2}
+Uuid={f6c4a769-e208-4546-a3b1-137472e2b768}
 
 [Data_1_8]
 Comment=Comment
 Enabled=true
-Name=Tor browser
+Name=Krusader
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_8Actions]
 ActionsCount=1
 
 [Data_1_8Actions0]
-CommandURL=showwin "Navigator.Tor" start-tor-browser
+CommandURL=showwin "krusader.krusader" krusader
 Type=COMMAND_URL
 
 [Data_1_8Conditions]
@@ -515,21 +541,21 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_8Triggers0]
-Key=Alt+Y
+Key=Alt+K
 Type=SHORTCUT
-Uuid={a52e6c8d-d078-4dcd-8bb6-943225d89fe0}
+Uuid={73552960-0fd8-4431-9b5e-fcc118a3b4d2}
 
 [Data_1_9]
 Comment=Comment
 Enabled=true
-Name=Idea
+Name=Skype
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_9Actions]
 ActionsCount=1
 
 [Data_1_9Actions0]
-CommandURL=showwin "jetbrains-idea" idea.sh
+CommandURL=showwin "skype.Skype" skypeforlinux
 Type=COMMAND_URL
 
 [Data_1_9Conditions]
@@ -541,9 +567,9 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_9Triggers0]
-Key=Alt+E
+Key=Alt+S
 Type=SHORTCUT
-Uuid={7b0a4020-93b8-49d8-a133-cb084a007242}
+Uuid={ca00f051-faef-4f89-aa46-2c0b9dadafd7}
 
 [Main]
 AllowMerge=false
