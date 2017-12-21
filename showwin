@@ -40,4 +40,12 @@ elif [[ -n $MATCHED ]]; then
 else
   echo Opening new window $2
   $2&
+  
+  # wait up to 5 seconds while window is opening
+  end=$((SECONDS+5))
+  while [[ -z `wmctrl -l -x | grep -i "$1"` && $SECONDS -lt $end ]]; do
+    sleep 0.2
+  done
+  WINID=`wmctrl -l -x | grep -i "$1" | head -1 | cut -d" " -f1`
+  wmctrl -a $WINID -i
 fi
