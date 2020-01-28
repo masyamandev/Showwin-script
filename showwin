@@ -10,35 +10,42 @@ mkdir -p "$SWITCH_DIR"
 rm -r "$LAST_DIR"
 ln -s "$SWITCH_DIR" "$LAST_DIR"
 
-PINNED=`ls "$SWITCH_DIR"`
+PINNED_ID=`ls "$SWITCH_DIR"`
 
-MATCHED=`wmctrl -l -x | grep -i "$1\|^$PINNED "`
-if [[ -z $MATCHED && -z $2 ]]; then
-  echo Assigning new window
-  MATCHED=`wmctrl -l -x`
-  PINNED=
+# echo "Pinned $PINNED_ID"
+
+MATCHED_WIN=`wmctrl -l -x | grep -i "$1\|^$PINNED_ID "`
+if [[ -z $MATCHED_WIN && -z $2 ]]; then
+  echo "Assigning new window"
+  MATCHED_WIN=`wmctrl -l -x`
 fi
 
-CURRENT=`xdotool getwindowfocus`
-CURRENT=`printf "0x%08x" $CURRENT`
-MATCHED_CURRENT=`echo "$MATCHED" | grep "^$CURRENT" | head -1 | cut -d" " -f1`
+CURRENT_ID=`xdotool getwindowfocus`
+CURRENT_ID=`printf "0x%08x" $CURRENT_ID`
+MATCHED_CURRENT_ID=`echo "$MATCHED_WIN" | grep "^$CURRENT_ID " | head -1 | cut -d" " -f1`
+MATCHED_PINNED_ID=`echo "$MATCHED_WIN" | grep "^$PINNED_ID " | head -1 | cut -d" " -f1`
 
-MATCHED_PINNED=`echo "$MATCHED" | grep "^$PINNED"`
-
-if [[ -n $MATCHED_PINNED ]]; then
-  MATCHED=$MATCHED_PINNED
-fi
-
-if [[ -n $MATCHED_CURRENT && -z $PINNED ]]; then
-  echo Setting new current window $MATCHED_CURRENT
-  rm -r "$SWITCH_DIR"/* > /dev/null
-  mkdir -p "$SWITCH_DIR/$MATCHED_CURRENT"
-elif [[ -n $MATCHED ]]; then
-  WINID=`echo "$MATCHED" | head -1 | cut -d" " -f1`
-  echo Switching to window $WINID
-  wmctrl -a $WINID -i
+if [[ -n $MATCHED_PINNED_ID ]]; then
+  MATCHED_ID=$MATCHED_PINNED_ID
+elif [[ -n $MATCHED_CURRENT_ID ]]; then
+  MATCHED_ID=$MATCHED_CURRENT_ID
 else
-  echo Opening new window $2
+  MATCHED_ID=`echo "$MATCHED_WIN" | head -1 | cut -d" " -f1`
+fi
+
+# echo "Matched current $MATCHED_CURRENT_ID"
+# echo "Matched pinned $MATCHED_PINNED_ID"
+# echo "Matched $MATCHED_ID"
+
+  
+if [[ -n "$MATCHED_CURRENT_ID" ]] && [[ "$MATCHED_PINNED_ID" -eq "$MATCHED_CURRENT_ID" ]]; then
+  echo "Minimize"
+  xdotool getactivewindow windowminimize
+elif [[ -n $MATCHED_ID ]]; then
+  echo "Switching to window $MATCHED_ID"
+  wmctrl -a $MATCHED_ID -i
+elif [[ -n $2 ]]; then
+  echo "Opening new window $2"
   $2&
   
   # wait up to 5 seconds while window is opening
@@ -46,6 +53,12 @@ else
   while [[ -z `wmctrl -l -x | grep -i "$1"` && $SECONDS -lt $end ]]; do
     sleep 0.2
   done
-  WINID=`wmctrl -l -x | grep -i "$1" | head -1 | cut -d" " -f1`
-  wmctrl -a $WINID -i
+  MATCHED_ID=`wmctrl -l -x | grep -i "$1" | head -1 | cut -d" " -f1`
+  wmctrl -a $MATCHED_ID -i
+fi
+
+
+if [[ -n $MATCHED_ID ]]; then
+  rm -r "$SWITCH_DIR"/* > /dev/null
+  mkdir -p "$SWITCH_DIR/$MATCHED_ID"
 fi
