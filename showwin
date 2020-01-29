@@ -2,17 +2,21 @@
 
 # sudo apt-get install wmctrl xdotool
 
-#SWITCH_DIR="/tmp/showwin/$1"
-SWITCH_DIR="/dev/shm/$USER/showwin/$1"
+# STORAGE_DIR="/tmp/showwin"
+STORAGE_DIR="/dev/shm/$USER/showwin"
 
-LAST_DIR="$SWITCH_DIR/../showwin_last"
+SWITCH_DIR="$STORAGE_DIR/$1"
+UNPIN_DIR="$STORAGE_DIR/reset_pinned"
+
 mkdir -p "$SWITCH_DIR"
-rm -r "$LAST_DIR"
-ln -s "$SWITCH_DIR" "$LAST_DIR"
 
-PINNED_ID=`ls "$SWITCH_DIR"`
+if [[ -d $UNPIN_DIR ]]; then
+  PINNED_ID=
+  rm -rf $UNPIN_DIR
+else
+  PINNED_ID=`ls "$SWITCH_DIR"`
+fi
 
-# echo "Pinned $PINNED_ID"
 
 MATCHED_WIN=`wmctrl -l -x | grep -i "$1\|^$PINNED_ID "`
 if [[ -z $MATCHED_WIN && -z $2 ]]; then
@@ -33,11 +37,7 @@ else
   MATCHED_ID=`echo "$MATCHED_WIN" | head -1 | cut -d" " -f1`
 fi
 
-# echo "Matched current $MATCHED_CURRENT_ID"
-# echo "Matched pinned $MATCHED_PINNED_ID"
-# echo "Matched $MATCHED_ID"
 
-  
 if [[ -n "$MATCHED_CURRENT_ID" ]] && [[ "$MATCHED_PINNED_ID" -eq "$MATCHED_CURRENT_ID" ]]; then
   echo "Minimize"
   xdotool getactivewindow windowminimize

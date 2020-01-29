@@ -1,7 +1,7 @@
 # Showwin-Script
 Linux script for quick switching active window using hot keys.
 
-Bind some hot keys in your linux desktop environment to this script with window description (e.g. part of window name) and and action for case when no suitable window is found. Switch to specified window using hot key. 
+Bind some hot keys in your linux desktop environment to this script with window description (e.g. part of window name) and action for case when no suitable window is found. Switch to specified window using hot key. 
 
 # Prerequisites
 Console tools *wmctrl* and *xdotool* are required. In Ubuntu they can be installed using apt:
@@ -48,18 +48,16 @@ $ wmctrl -l -x
 0x04400010  0 Navigator.Firefox        masyamandev-UX360CA Options - Mozilla Firefox
 0x044002b9  0 Navigator.Firefox        masyamandev-UX360CA Ubuntu Start Page - Mozilla Firefox
 ```
-By default window with smaller window id will be used. However there is additional functionality. If current active window fits window name regex, then active window id is stored and this window will be switched to by pressing hot key. 
-To detach window id from hot key command *showwinDetach* is used. It unassign window id from last used hot key. After using this script another window can be attached to hot key. It's recommended to bind this script to some hot key, e.g. *Alt+Backspace*.
+By default window with smaller window id will be used. This window id is stored and will be used to switch to the same window unless it's closed.
+It's possible to attach another matching window to the same hot key. To do it hot key command *showwinDetach* should be called before pressing the hot key. It will unassign window id from a hot key and assign active window. It's recommended to bind script *showwinDetach* to some hot key, e.g. *Alt+Backspace*.
 
 Here is an example of usage of setup above:
 1. Assuming that no Firefox application is run at the moment.
 2. Pressing hot key *Alt+F* will open new Firefox window.
 3. While working with other applications pressing *Alt+F* will switch to Firefox.
-4. If second window of Firefox is open, then make one Firefox window active and press *Alt+F*. This will save current window id and switch to it by further pressing *Alt+F*.
-5. Now by pressing *Alt+F* will be opened Firefox window selected on previous step.
-6. To assign another Firefox window to hot key *Alt+F* previously attached window should be detached using script *showwinDetach* or closed.
-7. To detach window form hot key it should be activated by pressing hot key *Alt+P* and detached *Alt+Backspace*.
-8. Another window can be attached to hot key the same way as described on step 4.
+4. If second window of Firefox is open, pressing *Alt+F* will activate first window of Firefox.
+5. To assign another Firefox window to hot key *Alt+F* you have to activate 2nd window, press *Alt+Backspace* and then *Alt+F*.
+6. Pressing hot key *Alt+F* will open 2nd Firefox window.
 
 ## Use case 3: customizable attaching
 It's possible to bind special hot keys which will be assignable to any window. To do this hot key should be bind to script *showwin* without second *$OPEN_WINDOW_COMMAND* argument. In this case parameter *$WINDOW_NAME* will work as hot key identifier. Here is an example of binding customizable hot keys:
@@ -71,9 +69,9 @@ Alt+0 -> showwin "CustomKey0"
 Alt+Backspace -> showwinDetach
 ```
 This will make hot keys *Alt+1* - *Alt+0* fully customizable, any window can be selected and attached to a hot key by pressing a hot key. Further pressing of a hot key will switch to attached window. 
-Detaching a window from a hot key is done in two steps:
-1. Switch to a window by pressing a hot key (*Alt+1* - *Alt+0*).
-2. Detach window from previous hot key using *showwinDetach* (*Alt+Backspace*). 
+To attach another window to a hot key is done in three steps:
+1. Activate desired window.
+2. Activate re-attaching script *showwinDetach* (*Alt+Backspace*). 
+3. Assign a new window by pressing a hot key (*Alt+1* - *Alt+0*).
 
-After this hot key can be attached to another window.
 
